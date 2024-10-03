@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         BouwHelper
+// @name         Grepolis Building Templates
 // @version      0.3
 // @description  Automatically provides visual hints for building requirements when building overview is loaded
-// @author       Tuow (optimized by Assistant)
+// @author       Tuow
 // @include      https://*.grepolis.com/game/*
 // @exclude      forum.*.grepolis.*/*
 // @exclude      wiki.*.grepolis.*/*
