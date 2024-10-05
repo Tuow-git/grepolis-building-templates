@@ -63,13 +63,6 @@
                 
                 $townRow.find('td').css('background-color', '');
 
-                const leftSpecialBuilt = Array.from(buildingSpecs.values()).some(spec => 
-                    spec.place === 'left' && desiredBuildings[spec.building] > 0 && buildings[spec.building] > 0
-                );
-                const rightSpecialBuilt = Array.from(buildingSpecs.values()).some(spec => 
-                    spec.place === 'right' && desiredBuildings[spec.building] > 0 && buildings[spec.building] > 0
-                );
-
                 buildingSpecs.forEach((spec, building) => {
                     const currentLevel = buildings[building];
                     const desiredLevel = desiredBuildings[building];
@@ -79,20 +72,9 @@
                     const $cell = $townRow.find(`td.${building}`);
                     
                     if (currentLevel < desiredLevel) {
-                        $cell.css('background-color', '#90EE90');
-                        Object.entries(spec.requirements).forEach(([reqBuilding, reqLevel]) => {
-                            if (buildings[reqBuilding] < reqLevel) {
-                                $townRow.find(`td.${reqBuilding}`).css('background-color', '#90EE90');
-                            }
-                        });
+                        $cell.css('background-color', '#90EE90'); // Light green
                     } else if (currentLevel > desiredLevel) {
-                        if (spec.place || 
-                            (building === 'main' && (leftSpecialBuilt || rightSpecialBuilt)) ||
-                            (building !== 'main' && leftSpecialBuilt && rightSpecialBuilt)) {
-                            $cell.css('background-color', '#FF6347');
-                        } else {
-                            $cell.css('background-color', '#FFA500');
-                        }
+                        $cell.css('background-color', '#FFB6C1'); // Light red
                     }
                 });
             };
